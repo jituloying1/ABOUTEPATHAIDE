@@ -16,15 +16,17 @@
     font-family:'Segoe UI',sans-serif;
 }
 
-/* BACKGROUND */
+/* BODY */
 body{
+    height:100vh;
+    overflow:hidden;
     background: linear-gradient(-45deg,#1e3c72,#2a5298,#4facfe,#00f2fe);
     background-size:400% 400%;
     animation:gradientBG 10s ease infinite;
     color:white;
 }
 
-/* ANIMATION */
+/* BACKGROUND ANIMATION */
 @keyframes gradientBG{
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}
@@ -33,95 +35,88 @@ body{
 
 /* CONTAINER */
 .container{
-    width:90%;
-    max-width:1000px;
-    margin:auto;
-    padding:30px 0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:10px;
 }
 
 /* TITLE */
 .title{
     text-align:center;
-    margin-bottom:30px;
 }
 
 .title h1{
-    font-size:35px;
+    font-size:20px;
 }
 
-/* CARD STYLE */
+/* CARD GRID */
+.cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+/* CARD */
 .card{
     background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    padding:10px;
+    border-radius:10px;
+    font-size:11px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.2);
 
     opacity:0;
-    transform:translateY(40px);
-    transition:0.6s;
+    transform:translateY(20px);
+    transition:0.5s;
 }
 
-/* SHOW ANIMATION */
+/* SHOW */
 .card.show{
     opacity:1;
     transform:translateY(0);
 }
 
-/* SECTION HEADINGS */
+/* FULL WIDTH CARD */
+.full{
+    grid-column:1/3;
+}
+
+/* HEADINGS */
 .card h2{
-    margin-bottom:10px;
+    font-size:13px;
+    margin-bottom:5px;
 }
 
-/* LIST */
-ul{
-    padding-left:20px;
-}
-
-/* TEAM SECTION */
+/* TEAM */
 .team{
     display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    justify-content:center;
+    justify-content:space-around;
+    margin-top:5px;
 }
 
 /* TEAM CARD */
 .team-card{
-    width:250px;
     text-align:center;
-    background: rgba(255,255,255,0.2);
-    padding:20px;
-    border-radius:15px;
-    transition:0.3s;
-}
-
-.team-card:hover{
-    transform:scale(1.05);
 }
 
 /* IMAGE */
 .team-card img{
-    width:100px;
-    height:100px;
+    width:55px;
+    height:55px;
     border-radius:50%;
-    object-fit:cover;
-    margin-bottom:10px;
+}
+
+/* NAME */
+.team-card h3{
+    font-size:12px;
 }
 
 /* ROLE */
 .role{
-    font-size:14px;
+    font-size:10px;
     opacity:0.8;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-    .team{
-        flex-direction:column;
-        align-items:center;
-    }
 }
 
 </style>
@@ -133,107 +128,79 @@ ul{
 
     <!-- TITLE -->
     <div class="title">
-        <h1>🚖 About Pathaide</h1>
+        <h1>🚖 Pathaide</h1>
     </div>
 
-    <!-- ABOUT -->
-    <div class="card">
-        <p>
-        Pathaide is a modern mobility platform designed to make transportation simple, accessible, and reliable for everyone. 
-        We connect people with cars, bikes, e-rickshaws, and tractors for both travel and goods transport.
-        </p>
-    </div>
+    <!-- CONTENT GRID -->
+    <div class="cards">
 
-    <!-- FOCUS -->
-    <div class="card">
-        <h2>🌾 Rural & Village Focus</h2>
-        <p>
-        We focus on village and semi-urban areas where transportation is limited. 
-        Our goal is to connect rural communities with reliable transport services.
-        </p>
-    </div>
-
-    <!-- MISSION -->
-    <div class="card">
-        <h2>🌍 Our Mission</h2>
-        <p>
-        To build a strong and accessible transport network that reaches every corner, especially rural areas.
-        </p>
-    </div>
-
-    <!-- SERVICES -->
-    <div class="card">
-        <h2>🔧 What We Offer</h2>
-        <ul>
-            <li>Passenger rides (car, bike, e-rickshaw)</li>
-            <li>Goods transport (tractor & load vehicles)</li>
-            <li>Driver-on-demand services</li>
-        </ul>
-    </div>
-
-    <!-- DRIVERS -->
-    <div class="card">
-        <h2>🤝 For Drivers & Owners</h2>
-        <p>
-        We create earning opportunities for local drivers and vehicle owners.
-        </p>
-    </div>
-
-    <!-- SAFETY -->
-    <div class="card">
-        <h2>🔐 Safety & Trust</h2>
-        <p>
-        We ensure safety, transparency, and reliable service for all users.
-        </p>
-    </div>
-
-    <!-- VISION -->
-    <div class="card">
-        <h2>📍 Our Vision</h2>
-        <p>
-        To empower rural communities through smart transportation.
-        </p>
-    </div>
-
-    <!-- TEAM -->
-    <div class="card">
-        <h2 style="text-align:center;">👨‍💻 Our Team</h2>
-
-        <div class="team">
-
-            <!-- WEB DEVELOPER -->
-            <div class="team-card">
-                <img src="https://i.imgur.com/2DhmtJ4.png" alt="Developer">
-                <h3>Jitu Loying</h3>
-                <p class="role">Web Developer</p>
-            </div>
-
-            <!-- WEB DESIGNER -->
-            <div class="team-card">
-                <img src="https://i.imgur.com/8Km9tLL.png" alt="Designer">
-                <h3>Your Designer Name</h3>
-                <p class="role">Web Designer</p>
-            </div>
-
+        <div class="card full">
+            Pathaide is a modern mobility platform connecting cars, bikes, e-rickshaws and tractors for travel & goods transport.
         </div>
+
+        <div class="card">
+            <h2>🌾 Focus</h2>
+            Rural & village transport solutions.
+        </div>
+
+        <div class="card">
+            <h2>🌍 Mission</h2>
+            Accessible transport for all areas.
+        </div>
+
+        <div class="card">
+            <h2>🔧 Services</h2>
+            Rides, goods, driver-on-demand.
+        </div>
+
+        <div class="card">
+            <h2>🤝 Drivers</h2>
+            Earning opportunities.
+        </div>
+
+        <div class="card">
+            <h2>🔐 Safety</h2>
+            Trusted & transparent service.
+        </div>
+
+        <div class="card">
+            <h2>📍 Vision</h2>
+            Empower rural communities.
+        </div>
+
+        <!-- TEAM -->
+        <div class="card full">
+            <h2 style="text-align:center;">👨‍💻 Team</h2>
+
+            <div class="team">
+
+                <div class="team-card">
+                    <img src="https://i.imgur.com/2DhmtJ4.png">
+                    <h3>Jitu Loying</h3>
+                    <div class="role">Web Developer</div>
+                </div>
+
+                <div class="team-card">
+                    <img src="https://i.imgur.com/8Km9tLL.png">
+                    <h3>Your Name</h3>
+                    <div class="role">Web Designer</div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
 </div>
 
-<!-- SCROLL ANIMATION SCRIPT -->
+<!-- ANIMATION SCRIPT -->
 <script>
 const cards = document.querySelectorAll('.card');
 
-window.addEventListener('scroll', ()=>{
-    let trigger = window.innerHeight * 0.85;
-
-    cards.forEach(card=>{
-        let top = card.getBoundingClientRect().top;
-
-        if(top < trigger){
-            card.classList.add('show');
-        }
-    });
+cards.forEach((card,i)=>{
+    setTimeout(()=>{
+        card.classList.add('show');
+    }, i * 100);
 });
 </script>
 
